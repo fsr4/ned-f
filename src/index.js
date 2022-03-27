@@ -14,13 +14,14 @@ try {
         if (key !== '') keys.push(key);
     });
 } catch (err) {
-    fs.open(KEY_FILE_NAME, 'w', function (err, file) {
+    fs.open(KEY_FILE_NAME, 'w', function (err) {
         if (err) console.log(`Error opening file ${KEY_FILE_NAME}\n${err}`);
         console.log(`Created file ${KEY_FILE_NAME}`);
     });
 }
 
 const httpServer = http.createServer((req, res) => {
+    if (req.url.charAt(req.url.length - 1) === '/') req.url += 'index.html';
     try {
         const data = fs.readFileSync(join(process.cwd(), 'src', req.url));
         res.writeHead(200);
