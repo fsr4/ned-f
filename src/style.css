@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --list-separator: 1px solid #555;
+
+    box-sizing: border-box;
+    font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+    font-size: 1.2em;
+    text-align: center;
+}
+
+* {
+    margin: 0.3em 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80vh;
+    position: relative;
+    margin: 2rem auto 0;
+    max-width: 800px;
+}
+
+h1 {
+    margin: 0 0 0.5em 0;
+}
+
+.error {
+    background-color: red;
+    position: relative;
+}
+
+.error::before, .error::after {
+    content: "";
+    display: block;
+    width: 45em;
+    height: 5em;
+    background-color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 45em / 2);
+}
+
+.error::before {
+    transform: rotate(-45deg);
+}
+
+.error::after {
+    transform: rotate(45deg);
+}
+
+.success::before, .success::after {
+    content: "";
+    display: block;
+    width: 45em;
+    height: 5em;
+    background-color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 45em / 2);
+}
+
+.success::before {
+    transform: translateX(25%) rotate(-55deg);
+}
+
+.success::after {
+    transform: translate(-25.5%, 170%) rotate(35deg) scaleX(0.5);
+}
+
+.success {
+    background-color: yellowgreen;
+}
+
+input {
+    background-color: transparent;
+    width: 77%;
+    padding: 0.5em 0.8em;
+    display: inline-block;
+    margin: 0.3em auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: inherit;
+    font-size: inherit;
+}
+
+input::placeholder {
+    color: rgba(0, 0, 0, 0.25);
+}
+
+input:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: background-color 100ms;
+}
+
+input.error-border {
+    animation: error-border 1s forwards;
+}
+
+#popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    font-size: 2em;
+}
+
+@keyframes error-border {
+    5% {
+        border: 3px solid red;
+    }
+
+    30% {
+        border: 3px solid red;
+    }
+
+    100% {
+        border: 1px solid #ccc;
+    }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    body {
+        color: #fff;
+        background: #333;
+    }
+
+    input {
+        color: #fff;
+    }
+
+    input::placeholder {
+        color: rgba(255, 255, 255, 0.75);
+    }
+
+    svg {
+        color: #fff;
+    }
+
+    li > a[download]:hover::before {
+        background: #fff;
+    }
+}
