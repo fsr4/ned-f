@@ -22,6 +22,8 @@ body {
     position: relative;
     margin: 2rem auto 0;
     max-width: 800px;
+    color: #fff;
+    background: #333;
 }
 
 h1 {
@@ -86,10 +88,11 @@ input {
     box-sizing: border-box;
     text-align: inherit;
     font-size: inherit;
+    color: #fff;
 }
 
 input::placeholder {
-    color: rgba(0, 0, 0, 0.25);
+    color: rgba(255, 255, 255, 0.75);
 }
 
 input:hover {
@@ -123,28 +126,5 @@ input.error-border {
 
     100% {
         border: 1px solid #ccc;
-    }
-}
-
-@media screen and (prefers-color-scheme: dark) {
-    body {
-        color: #fff;
-        background: #333;
-    }
-
-    input {
-        color: #fff;
-    }
-
-    input::placeholder {
-        color: rgba(255, 255, 255, 0.75);
-    }
-
-    svg {
-        color: #fff;
-    }
-
-    li > a[download]:hover::before {
-        background: #fff;
     }
 }
